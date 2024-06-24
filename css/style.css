@@ -4,7 +4,9 @@
   --mainColor : #0A4424;
   --subColor : #FADFC1;
   --backgroundColor : #fbfbfb;
+  --blackBackgroundColor : #333;
   --basicTextColor : #333;
+  --blackBackgroundTextColor : #fbfbfb;
 
   /* fontSize */
   --normalTextSize : 16px;
@@ -138,6 +140,7 @@ header .top .right .utility .utilItem .utilIcon {
   display: block;
   width: 24px;
   height: 24px;
+  transition: all 0.3s;
 }
 header .top .right .utility .utilItem .utilIcon:hover { opacity: 0.6;}
 header .top .right .utility .utilItem .utilIcon.sun { background: url(../images/icons/sun.png) no-repeat center/cover; }
