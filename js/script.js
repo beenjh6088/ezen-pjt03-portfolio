@@ -10,7 +10,7 @@ function init() {
 // 이벤트 넣어주기
 function makeEvents() {
   slideUpDown(".utilIcon.menu", ".header .subMenu");
-  reverseBlacknWhite();
+  switchBlacknWhite();
 }
 
 
@@ -27,14 +27,13 @@ function slideUpDown(trigger, target) {
 
 
 // 다크모드 화이트모드 전환
-function reverseBlacknWhite() {
+function switchBlacknWhite() {
   let sun = "sun";
   let moon = "moon";
   let star = document.querySelector(".utilIcon.star");
   let body = document.querySelector("body");
-  let gnb = document.querySelectorAll(".gnb .menuItem a");
   let menu = document.querySelector(".utilIcon.menu");
-  let mainText = document.querySelector(".mainText");
+  let txt = document.querySelectorAll(".txt");
   let whiteColor = getComputedStyle(root).getPropertyValue("--whiteBackgroundColor").trim();
   let blackColor = getComputedStyle(root).getPropertyValue("--blackBackgroundColor").trim();;
   star.addEventListener("click", function() {
@@ -43,16 +42,14 @@ function reverseBlacknWhite() {
       this.classList.remove(sun);
       this.classList.add(moon);
       body.style.backgroundColor = blackColor;
-      gnb.forEach((a) => a.style.color = whiteColor);
-      mainText.style.color = whiteColor;
+      txt.forEach((t) => t.style.color = whiteColor);
       menu.style.background = 'url(../images/icons/menuWhite.png) no-repeat center/cover'
     // light mode
     }else if(this.classList.contains(moon)) {
       this.classList.remove(moon);
       this.classList.add(sun);
       body.style.backgroundColor = whiteColor;
-      gnb.forEach((a) => a.style.color = blackColor)
-      mainText.style.color = blackColor;
+      txt.forEach((t) => t.style.color = blackColor);
       menu.style.background = 'url(../images/icons/menu.png) no-repeat center/cover'
     }
 
