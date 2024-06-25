@@ -32,6 +32,7 @@ function switchBlacknWhite() {
   let moon = "moon";
   let star = document.querySelector(".utilIcon.star");
   let body = document.querySelector("body");
+  let subMenu = document.querySelector(".subMenu");
   let menu = document.querySelector(".utilIcon.menu");
   let txt = document.querySelectorAll(".txt");
   let whiteColor = getComputedStyle(root).getPropertyValue("--whiteBackgroundColor").trim();
@@ -42,6 +43,7 @@ function switchBlacknWhite() {
       this.classList.remove(sun);
       this.classList.add(moon);
       body.style.backgroundColor = blackColor;
+      subMenu.style.backgroundColor = blackColor;
       txt.forEach((t) => t.style.color = whiteColor);
       menu.style.background = 'url(../images/icons/menu-white.png) no-repeat center/cover'
     // light mode
@@ -49,6 +51,7 @@ function switchBlacknWhite() {
       this.classList.remove(moon);
       this.classList.add(sun);
       body.style.backgroundColor = whiteColor;
+      subMenu.style.backgroundColor = whiteColor;
       txt.forEach((t) => t.style.color = blackColor);
       menu.style.background = 'url(../images/icons/menu.png) no-repeat center/cover'
     }
