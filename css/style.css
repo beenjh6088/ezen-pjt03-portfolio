@@ -7,6 +7,7 @@
   --blackBackgroundColor : #333;
   --basicTextColor : #333;
   --blackBackgroundTextColor : #fbfbfb;
+  --lightMintColor : #F1F6F3;
 
   /* fontSize */
   --normalTextSize : 16px;
@@ -39,8 +40,49 @@ section.content {
   width: 100%;
   height: 100vh;
 }
-section:not(#main).content {
+section.content:nth-child(2n) {
+  background: linear-gradient(to bottom, var(--lightMintColor) 16%, var(--whiteBackgroundColor) 48%, var(--lightMintColor) 80%);
+}
+section:not(#main):not(#profile).content {
   border: 1px dashed red;
+}
+/* 
+column
+*/
+.column {
+  width: 180px;
+}
+.column .top {
+  width: 100%;
+  height: 48px;
+  display: flex;
+}
+.column .top .column_icon {
+  padding: 12px 10px;
+}
+.column .top .column_title {
+  padding: 10px 4px;
+}
+.column .bottom .content_list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: start;
+  justify-content: start;
+}
+.column .bottom .content_list .content_item {
+  width: 100%;
+  padding-left: 24px;
+  position: relative;
+}
+.column .bottom .content_list .content_item:nth-child(2n) {
+  color: var(--mainColor)
+}
+.column .bottom .content_list .content_item:before {
+  content :'\25b8';
+  position: absolute;
+  left: 10px;
+  top: 0;
 }
 
 
@@ -246,3 +288,77 @@ header .bottom .mainText {
 /* 
 profile
 */
+#profile .container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 8px;
+}
+#profile .container .outline {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#profile .container .outline .story {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 0 16px;
+  /* flex-grow: 1; */
+}
+#profile .container .outline .story .title {
+  padding : 0 10px;
+}
+#profile .container .outline .story .title .txt {
+  height: 58px;
+  line-height: 58px;
+  font-size: 44px;
+  font-weight: bold;
+  /* border: 1px dashed red; */
+}
+#profile .container .outline .story .content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 16px;
+}
+#profile .container .outline .story .content .column {
+  flex-grow: 1;
+  position: relative;
+}
+#profile .container .outline .story .content .column .leftText {
+  display: inline-block;
+  width: 150px;
+}
+#profile .container .outline .story .content .column .rightText {
+  font-size: 12px;
+  float: right;
+  height: 21px;
+  line-height: 21px;
+}
+#profile .container .pattern {
+  width: 30%;
+  height: 100%;
+}
+#profile .container .pattern .frame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#profile .container .pattern .frame img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}

@@ -34,6 +34,8 @@ function switchBlacknWhite() {
   let body = document.querySelector("body");
   let subMenu = document.querySelector(".subMenu");
   let menu = document.querySelector(".utilIcon.menu");
+  let sections = document.querySelectorAll("section.content");
+  let icons = document.querySelectorAll("img.icon");
   let txt = document.querySelectorAll(".txt");
   let whiteColor = getComputedStyle(root).getPropertyValue("--whiteBackgroundColor").trim();
   let blackColor = getComputedStyle(root).getPropertyValue("--blackBackgroundColor").trim();;
@@ -45,6 +47,15 @@ function switchBlacknWhite() {
       body.style.backgroundColor = blackColor;
       subMenu.style.backgroundColor = blackColor;
       txt.forEach((t) => t.style.color = whiteColor);
+      for(let i =0; i < sections.length; i++) {
+        if(i == 0) continue;
+        sections[i].style.background = blackColor;
+      }
+      icons.forEach(function(i) {
+        let oldSrc = i.src;
+        let newSrc = oldSrc.replace(".png", "-white.png")
+        i.src = newSrc;
+      })
       menu.style.background = 'url(../images/icons/menu-white.png) no-repeat center/cover'
     // light mode
     }else if(this.classList.contains(moon)) {
@@ -53,6 +64,15 @@ function switchBlacknWhite() {
       body.style.backgroundColor = whiteColor;
       subMenu.style.backgroundColor = whiteColor;
       txt.forEach((t) => t.style.color = blackColor);
+      for(let i =0; i < sections.length; i++) {
+        if(i == 0) continue;
+        sections[i].style.background = `linear-gradient(to bottom, var(--lightMintColor) 16%, var(--whiteBackgroundColor) 48%, var(--lightMintColor) 80%)`;
+      }
+      icons.forEach(function(i) {
+        let oldSrc = i.src;
+        let newSrc = oldSrc.replace("-white.png", ".png")
+        i.src = newSrc;
+      })
       menu.style.background = 'url(../images/icons/menu.png) no-repeat center/cover'
     }
 
