@@ -43,7 +43,7 @@ function switchBlacknWhite() {
       this.classList.add(moon);
       body.style.backgroundColor = blackColor;
       txt.forEach((t) => t.style.color = whiteColor);
-      menu.style.background = 'url(../images/icons/menuWhite.png) no-repeat center/cover'
+      menu.style.background = 'url(../images/icons/menu-white.png) no-repeat center/cover'
     // light mode
     }else if(this.classList.contains(moon)) {
       this.classList.remove(moon);
