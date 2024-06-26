@@ -85,6 +85,60 @@ column
   top: 0;
 }
 
+/* 
+cards
+*/
+.cards {
+  width: 100%;
+  border: 1px solid white;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  background: rgba(255,255,255,0.1);
+  perspective: 500px;
+	display: flex;
+  align-items: end;
+  justify-content: start;
+  gap: 0 32px;
+}
+.cards .card {
+  /* width: 297px; */
+  /* height: 441px; */
+  width: 612px;
+  height: 704px;
+  /* flex: 0 0 200px;
+  height: 200px; */
+  /* display: inline-flex; */
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  font-weight: 100;
+  /* color: var(--basicTextColor); */
+  /* box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15); */
+  transition: all 0.3s ease;
+  transform: scale(0.98);
+  will-change: transform;
+	position:relative;
+	border-radius:15px;
+  background-color: var(--mainColor);
+  flex-shrink: 0;
+}
+.cards .card.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  transform: scale(1);
+}
+.cards .card.onStage {
+  opacity: 1;
+  transform: scale(1);
+}
+.cards .card.offStage {
+  opacity: 0.6;
+  transform: scale(0.6);
+}
+
 
 
 /* 
@@ -380,9 +434,6 @@ skills
   align-items: center;
   justify-content: center;
 }
-#skills .container > * {
-  /* border: 1px dashed red; */
-}
 #skills .container .head {
   width: 100%;
   text-align: center;
@@ -475,4 +526,32 @@ skills
 #skills .body .skills_item_content .level img {
   display: block;
   width: 46px;
+}
+
+
+
+/* 
+portfolio
+*/
+#portfolio .container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#portfolio .container .head {
+  width: 100%;
+  text-align: center;
+  padding: 32px 16px;
+}
+#portfolio .container .body {
+  width: 100%;
+  /* height: calc(100vh - 122px); */
+  height: 666px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
 }
