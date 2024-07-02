@@ -4,6 +4,8 @@ const root = document.documentElement;
 // 페이지 로드시 초기화 작업
 function init() {
   makeEvents();
+  const langTxts = document.querySelectorAll(".txt:not(.KOR)");
+  langTxts.forEach(langTxt => {langTxt.style.display = "none";})
 }
 
 
@@ -27,6 +29,7 @@ function slideUpDown(trigger, target) {
 }
 
 
+const arrColorForCard = [];
 // 다크모드 화이트모드 전환
 function switchBlacknWhite() {
   let sun = "sun";
@@ -38,6 +41,7 @@ function switchBlacknWhite() {
   let sections = document.querySelectorAll("section.content");
   let icons = document.querySelectorAll("img.icon");
   let txt = document.querySelectorAll(".txt");
+  let bg = document.querySelectorAll(".bg");
   let whiteColor = getComputedStyle(root).getPropertyValue("--whiteBackgroundColor").trim();
   let blackColor = getComputedStyle(root).getPropertyValue("--blackBackgroundColor").trim();;
   star.addEventListener("click", function() {
@@ -51,6 +55,10 @@ function switchBlacknWhite() {
       for(let i =0; i < sections.length; i++) {
         if(i == 0) continue;
         sections[i].style.background = blackColor;
+      }
+      for(let i =0; i < bg.length; i++) {
+        arrColorForCard.push(bg[i].style.background);
+        bg[i].style.background = blackColor;
       }
       icons.forEach(function(i) {
         let oldSrc = i.src;
@@ -68,6 +76,10 @@ function switchBlacknWhite() {
       for(let i =0; i < sections.length; i++) {
         if(i == 0) continue;
         sections[i].style.background = `linear-gradient(to bottom, var(--lightMintColor) 16%, var(--whiteBackgroundColor) 48%, var(--lightMintColor) 80%)`;
+      }
+      for(let i =0; i < bg.length; i++) {
+        // bg[i].style.background = `rgb(241, 246, 243)`;
+        bg[i].style.background = arrColorForCard[i];
       }
       icons.forEach(function(i) {
         let oldSrc = i.src;
@@ -155,5 +167,44 @@ function letsMoveWithMouse() {
 
       })
     })
+  }
+}
+
+let listenersAdded = false;
+function setLanguage(event) {
+  // console.log(1)
+  event.preventDefault();
+  const languageList = document.querySelector(".languageList");
+  const languageItems = document.querySelectorAll(".languageItem");
+  if(languageList.classList.contains("selected")) languageList.classList.remove("selected")
+  else languageList.classList.add("selected")
+
+  if(!listenersAdded) {
+    languageItems.forEach(item => {
+      item.addEventListener("click", pickLanguage)
+    })
+    listenersAdded = true;
+  }
+}
+
+const arrLang = ["USA", "JPN", "KOR"]
+function pickLanguage() {
+  const languageList = document.querySelector(".languageList");
+  const languageItems = document.querySelectorAll(".languageItem");
+  const txts = document.querySelectorAll(".txt");
+  languageList.classList.remove("selected")
+  languageItems.forEach(i => i.classList.remove("selected"));
+  this.classList.add("selected")
+  let lang = this.classList[1];
+
+  txts.forEach(t => t.style.display = "none");
+  for(let l of arrLang) {
+    if(l == lang) {
+      console.log(lang)
+      const langTxts = document.querySelectorAll(".txt."+lang);
+      console.log(langTxts)
+      langTxts.forEach(langTxt => {langTxt.style.display = "block";})
+      break;
+    }
   }
 }

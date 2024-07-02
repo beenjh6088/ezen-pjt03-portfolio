@@ -237,6 +237,7 @@ header .top .left .gnb .menuItem a {
 header .top .right {
   width: calc(100% - 73.809%);
   height: 100%;
+  position: relative;
   /* border: 1px dashed blue; */
 }
 header .top .right .utility {
@@ -263,6 +264,58 @@ header .top .right .utility .utilItem .utilIcon:hover { opacity: 0.6;}
 header .top .right .utility .utilItem .utilIcon.star.sun { background: url(../images/icons/sun.png) no-repeat center/cover; }
 header .top .right .utility .utilItem .utilIcon.star.moon { background: url(../images/icons/moon.png) no-repeat center/cover; }
 header .top .right .utility .utilItem .utilIcon.menu { background: url(../images/icons/menu.png) no-repeat center/cover; }
+header .top .right .utility .utilItem .utilIcon.globe { background: url(../images/icons/globe.png) no-repeat center/cover; }
+.languageList {
+  display: none;
+  width: 148px;
+  /* height: 48px; */
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 100%);
+  transition: all 0.3s;
+  box-shadow: 0px 0px 4px -2px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+.languageList.selected {
+  display: block;
+}
+.languageItem {
+  width: 148px;
+  height: 48px;
+  background-color: var(--whiteBackgroundColor);
+  border-bottom: 1px solid #dadada;
+  transition: all 0.3s;
+}
+.languageItem:last-child {
+  border-bottom: none;
+}
+.languageItem.selected {
+  /* background-color: rgba(17, 209, 113); */
+  background-color: rgb(23, 241, 132);
+}
+.languageItem a {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  padding : 6px 8px;
+}
+.languageItem a:hover {
+  opacity: 0.5;
+}
+.languageItem a img {
+  width: 54px;
+  height: 36px;
+  border: 1px solid #aaa;
+}
+.languageItem a span {
+  height: 100%;
+  flex-grow: 1;
+  line-height: 35px;
+}
 header .top .subMenu {
   position: absolute;
   left: 0;
@@ -614,7 +667,7 @@ contact
   height:100%;
   /* background: rgba(255,255,255,0.5); */
 }
-#contact .body .icons {
+#contact .body .iconList {
   padding: 24px 0;
   display: flex;
   align-items: center;
