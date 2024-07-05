@@ -235,7 +235,7 @@ header .top .left .gnb .menuItem a {
   /* border: 1px dashed blue; */
 }
 .txt.JPN {
-  letter-spacing: -0.2em;
+  /* letter-spacing: -0.2em; */
 }
 header .top .right {
   width: calc(100% - 73.809%);
@@ -329,7 +329,7 @@ header .top .subMenu {
   display: none;
   align-items: center;
   justify-content: start;
-  gap: 48px;
+  gap: 36px;
   background-color: var(--whiteBackgroundColor);
   box-shadow: 0px 2px 4px -2px rgba(0,0,0,0.5);
 }
@@ -343,7 +343,7 @@ header .top .subMenu .subMenu_image {
   /* border: 1px dashed blue; */
 }
 header .top .subMenu .subMenu_list {
-  width: 343px;
+  /* width: 343px; */
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -625,6 +625,12 @@ portfolio
   width: 100%;
   text-align: center;
   padding: 32px 16px;
+}
+#portfolio .container .head .txt {
+  height: 58px;
+  line-height: 58px;
+  font-size: 44px;
+  font-weight: bold;
 }
 #portfolio .container .body {
   width: 100%;
