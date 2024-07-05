@@ -234,6 +234,9 @@ header .top .left .gnb .menuItem a {
   color: var(--basicTextColor);
   /* border: 1px dashed blue; */
 }
+.txt.JPN {
+  letter-spacing: -0.2em;
+}
 header .top .right {
   width: calc(100% - 73.809%);
   height: 100%;
@@ -276,6 +279,7 @@ header .top .right .utility .utilItem .utilIcon.globe { background: url(../image
   transition: all 0.3s;
   box-shadow: 0px 0px 4px -2px rgba(0,0,0,0.5);
   overflow: hidden;
+  z-index: 1;
 }
 .languageList.selected {
   display: block;
