@@ -42,6 +42,7 @@ function switchBlacknWhite() {
   let icons = document.querySelectorAll("img.icon");
   let txt = document.querySelectorAll(".txt");
   let bg = document.querySelectorAll(".bg");
+  let cards = document.querySelectorAll(".card");
   let whiteColor = getComputedStyle(root).getPropertyValue("--whiteBackgroundColor").trim();
   let blackColor = getComputedStyle(root).getPropertyValue("--blackBackgroundColor").trim();;
   star.addEventListener("click", function() {
@@ -65,6 +66,10 @@ function switchBlacknWhite() {
         let newSrc = oldSrc.replace(".png", "-white.png")
         i.src = newSrc;
       })
+      cards.forEach(card => {
+        card.style.background = blackColor;
+        card.style.border = `1px solid ${whiteColor}`;
+      })
       menu.style.background = 'url(../images/icons/menu-white.png) no-repeat center/cover'
     // light mode
     }else if(this.classList.contains(moon)) {
@@ -85,6 +90,11 @@ function switchBlacknWhite() {
         let oldSrc = i.src;
         let newSrc = oldSrc.replace("-white.png", ".png")
         i.src = newSrc;
+      })
+      cards.forEach(card => {
+        card.style.background = whiteColor;
+        card.style.border = `1px solid ${blackColor}`;
+        
       })
       menu.style.background = 'url(../images/icons/menu.png) no-repeat center/cover'
     }
