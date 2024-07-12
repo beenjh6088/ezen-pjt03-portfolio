@@ -70,7 +70,7 @@ function switchBlacknWhite() {
         card.style.background = blackColor;
         card.style.border = `1px solid ${whiteColor}`;
       })
-      menu.style.background = 'url(../images/icons/menu-white.png) no-repeat center/cover'
+      menu.style.background = 'url(./images/icons/menu-white.png) no-repeat center/cover'
     // light mode
     }else if(this.classList.contains(moon)) {
       this.classList.remove(moon);
@@ -96,7 +96,7 @@ function switchBlacknWhite() {
         card.style.border = `1px solid ${blackColor}`;
         
       })
-      menu.style.background = 'url(../images/icons/menu.png) no-repeat center/cover'
+      menu.style.background = 'url(./images/icons/menu.png) no-repeat center/cover'
     }
 
   })
